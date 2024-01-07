@@ -16,6 +16,7 @@ import {
 
 const Register = () => {
   const navigate = useNavigate();
+  const url = process.env.REACT_APP_URL;
 
   // References to input elements
 
@@ -57,7 +58,7 @@ const Register = () => {
     try {
       // Send POST request to the server for candidate registration
 
-      const res = await fetch('http://localhost:8080/register', {
+      const res = await fetch(`${url}/register`, {
         method: 'POST',
         body: formData, // Set the request body as FormData
       });

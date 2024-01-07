@@ -2,10 +2,12 @@ import React, { useEffect } from 'react';
 import { Navigate, useParams } from 'react-router-dom';
 
 const PaymentSuccess = () => {
+  const url = process.env.REACT_APP_URL;
+
   const { id } = useParams();
 
   useEffect(() => {
-    const res = fetch(`http://localhost:8080/payment-success/${id} `, {
+    const res = fetch(`${url}/payment-success/${id} `, {
       headers: {
         'Content-Type': 'application/json',
       },

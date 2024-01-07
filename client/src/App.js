@@ -12,6 +12,7 @@ import Logout from './components/Main-Component/Logout';
 import PaymentCancel from './components/Main-Component/PaymentCancel';
 import PaymentSuccess from './components/Main-Component/PaymentSuccess';
 import ErrorPage from './components/Main-Component/ErrorPage';
+// require('dotenv').config();
 
 function App() {
   const path = window.location.pathname;

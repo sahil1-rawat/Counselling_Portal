@@ -9,23 +9,22 @@ const ResetPassword = () => {
   const [PASSWORD, setPassword] = useState('');
   const [CONFIRM_PASSWORD, setConfirmPassword] = useState('');
   const { pswToken, setPswToken } = useAuth();
+  const url = process.env.REACT_APP_URL;
+
   const navigate = useNavigate();
   const ResetPasswords = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch(
-        `http://localhost:8080/reset-password/${pswToken}`,
-        {
-          method: 'put',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            PASSWORD,
-            CONFIRM_PASSWORD,
-          }),
-        }
-      );
+      const res = await fetch(`${url}/reset-password/${pswToken}`, {
+        method: 'put',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          PASSWORD,
+          CONFIRM_PASSWORD,
+        }),
+      });
       const data = await res.json();
       if (res.ok) {
         toast.success('Password reset successfully');

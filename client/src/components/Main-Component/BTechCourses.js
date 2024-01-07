@@ -4,6 +4,8 @@ import { useAuth } from '../../contexts/AuthContext';
 import { toast } from 'react-toastify';
 
 const BTechCourses = () => {
+  const url = process.env.REACT_APP_URL;
+
   const { candidate, isCourses, setIsCourses } = useAuth();
 
   const availableCourses = [
@@ -44,18 +46,15 @@ const BTechCourses = () => {
   const saveCourses = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch(
-        `http://localhost:8080/select-course/${candidate._id}`,
-        {
-          method: 'PUT',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            courses: selectedCourses,
-          }),
-        }
-      );
+      const res = await fetch(`${url}/select-course/${candidate._id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          courses: selectedCourses,
+        }),
+      });
       const data = await res.json();
       if (res.ok) {
         toast.success('course updated!');

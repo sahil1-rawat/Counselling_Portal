@@ -5,6 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { preventCopyPaste } from '../Extra-Files/extraFile';
 const Login = () => {
+  const url = process.env.REACT_APP_URL;
   const { storeTokenInLS, setCandidate, setLoading, setIsCourses, candidate } =
     useAuth();
   const navigate = useNavigate();
@@ -17,7 +18,7 @@ const Login = () => {
   const loginData = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch('http://localhost:8080/login', {
+      const res = await fetch(`${url}/login`, {
         headers: {
           'Content-Type': 'application/json',
         },

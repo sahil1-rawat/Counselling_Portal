@@ -6,11 +6,11 @@ dotenv.config({ path: './.env' });
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-
+const url = process.env.URL;
 require('./db/conn');
 
 const corsOptions = {
-  origin: 'http://localhost:3000',
+  origin: url,
   method: 'GET,POST,PUT,DELETE,PATCH,HEAD',
   credentials: true,
 };

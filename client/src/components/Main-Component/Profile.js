@@ -5,6 +5,8 @@ import { useAuth } from '../../contexts/AuthContext';
 import BTechCourses from './BTechCourses';
 import { loadStripe } from '@stripe/stripe-js';
 const Profile = () => {
+  const url = process.env.REACT_APP_URL;
+
   const navigate = useNavigate();
   const [candidateData, setCandidateData] = useState('');
   const { token, setCandidate, loading, setLoading, isCourses } = useAuth(); // Destructuring variables from the useAuth() hook for authentication
@@ -12,7 +14,7 @@ const Profile = () => {
 
   const ProfilePage = async () => {
     try {
-      const res = await fetch('http://localhost:8080/profile', {
+      const res = await fetch(`${url}/profile`, {
         method: 'GET',
         headers: {
           Authorization: `Bearer ${token}`,
@@ -44,10 +46,9 @@ const Profile = () => {
 
   //! Function to initiate a payment using Stripe API
   const makePayment = async () => {
+    const public_key = process.env.REACT_APP_STRIPE_KEY;
     // Load Stripe.js asynchronously
-    const stripe = await loadStripe(
-      'pk_test_51OGwoeSIfvD8c4d5882YLhCH0KJpDoTAGyorhTLaZmw2APb186qNqqFFko2ywRqB8ZLqTqKPx6bQIng2EQkLqstw00hdXpzoqr'
-    );
+    const stripe = await loadStripe(public_key);
 
     // Prepare request body with candidate payment data
     const body = {
@@ -60,7 +61,7 @@ const Profile = () => {
     };
 
     // Send a POST request to the server to create a payment session
-    const response = await fetch('http://localhost:8080/payment', {
+    const response = await fetch(`${url}/payment`, {
       method: 'POST',
       headers: headers,
       body: JSON.stringify(body),

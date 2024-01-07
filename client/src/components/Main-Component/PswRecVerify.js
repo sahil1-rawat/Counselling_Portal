@@ -5,6 +5,8 @@ import { toast } from 'react-toastify';
 import { useAuth } from '../../contexts/AuthContext';
 import { preventCopyPaste, securityQuestions } from '../Extra-Files/extraFile';
 const PswRecVerify = () => {
+  const url = process.env.REACT_APP_URL;
+
   const [EMAIL, setEmail] = useState('');
   const [security_question, setSecurityQuestion] = useState('');
   const [security_answer, setSecurityAnswer] = useState('');
@@ -13,7 +15,7 @@ const PswRecVerify = () => {
   const pswVerify = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch('http://localhost:8080/pswRecVerify', {
+      const res = await fetch(`${url}/pswRecVerify`, {
         method: 'post',
         headers: {
           'Content-Type': 'application/json',

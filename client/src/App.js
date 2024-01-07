@@ -23,6 +23,7 @@ function App() {
   ) {
     localStorage.removeItem('token');
   }
+
   return (
     <>
       <Router>

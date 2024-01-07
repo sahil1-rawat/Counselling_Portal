@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300&display=swap');
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -6,6 +7,7 @@
   background-color: #f5f7f8;
   color: #000;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  font-family: 'Titillium Web', sans-serif;
 }
 .navbar * {
   box-sizing: border-box;
@@ -25,7 +27,7 @@
 }
 
 .logo-name {
-  font-size: 0.9em;
+  font-size: 1.2em;
   font-weight: bold;
   text-align: center;
 }
@@ -37,9 +39,9 @@
 
 .nav-links a,
 .nav-links button {
-  background-color: #bfb29e;
-  color: #000;
-  font-size: 15px;
+  background-color: #57a6eb;
+  color: #fff;
+  font-size: 18px;
   border: none;
   text-decoration: none;
   padding: 8px 15px;
@@ -52,7 +54,7 @@
   display: inline-block;
   width: 40px;
   height: 40px;
-  background-color: #89cff3;
+  background-color: #10e882;
   color: #333;
   text-align: center;
   line-height: 40px;

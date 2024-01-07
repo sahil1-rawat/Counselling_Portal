@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
 import BTechCourses from './BTechCourses';
 import { loadStripe } from '@stripe/stripe-js';
-import { toast } from 'react-toastify';
 const Profile = () => {
   const navigate = useNavigate();
   const [candidateData, setCandidateData] = useState('');
@@ -215,13 +214,11 @@ const Profile = () => {
               Make Payment
             </button>
           ) : (
-            -(
-              <>
-                <button className='print' onClick={PrintForm}>
-                  Print
-                </button>
-              </>
-            )
+            <>
+              <button className='print' onClick={PrintForm}>
+                Print
+              </button>
+            </>
           )}
         </div>
       )}

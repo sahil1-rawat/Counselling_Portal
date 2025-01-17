@@ -18,7 +18,7 @@ root.render(
       newestOnTop={false}
       closeOnClick
       rtl={false}
-      pauseOnFocusLoss
+      pauseOnFocusLoss={true}
       draggable={false}
       pauseOnHover={false}
       theme='colored'

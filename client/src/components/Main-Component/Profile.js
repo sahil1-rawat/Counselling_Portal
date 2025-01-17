@@ -48,7 +48,9 @@ const Profile = () => {
   const makePayment = async () => {
     const public_key = process.env.REACT_APP_STRIPE_KEY;
     // Load Stripe.js asynchronously
-    const stripe = await loadStripe(public_key);
+    const stripe = await loadStripe(
+      'pk_test_51OGwoeSIfvD8c4d5882YLhCH0KJpDoTAGyorhTLaZmw2APb186qNqqFFko2ywRqB8ZLqTqKPx6bQIng2EQkLqstw00hdXpzoqr'
+    );
 
     // Prepare request body with candidate payment data
     const body = {

@@ -90,6 +90,10 @@ const handleChange = (name, value, candidate, setCandidate) => {
     });
   } else if (name === 'PHONE') {
     value = value.replace(/\D/g, '').slice(0, 10);
+    if (value.length > 0 && parseInt(value[0]) < 6) {
+      // If the first digit is between 0 to 5, remove it
+      value = value.slice(1);
+    }
     setCandidate({
       ...candidate,
       [name]: value,

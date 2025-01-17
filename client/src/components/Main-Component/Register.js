@@ -80,7 +80,7 @@ const Register = () => {
     } catch (error) {
       console.log(error);
     } finally {
-      resetForm(); // Reset the form fields regardless of success or failure
+      // resetForm(); // Reset the form fields regardless of success or failure
     }
   };
 

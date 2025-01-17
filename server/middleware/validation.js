@@ -1,3 +1,4 @@
+
 const validation = async (req, res, deleteFiles) => {
   try {
     const {
@@ -31,8 +32,10 @@ const validation = async (req, res, deleteFiles) => {
         error: 'passwords are not matching',
       });
     } else if (!JeeCandidate) {
+
       await deleteFiles(files);
-      return res.status(400).json({ error: 'Invalid Candidate' });
+	  		console.log(JeeCandidate);
+      return res.status(400).json({ error: `Invalid Candidate ` });
     } else if (candidateExist) {
       await deleteFiles(files);
       return res.status(400).json({ error: 'Candidate already exists' });
